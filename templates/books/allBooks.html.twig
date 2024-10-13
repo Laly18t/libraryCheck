@@ -11,11 +11,11 @@
 <div class="example-wrapper">
     <h1>Hello {{ controller_name }}! ✅</h1>
 
-    <p>Liste de vos livres</p>
+    <p class="text-2xl text-red-300">Liste de vos livres</p>
             {% for book in books %}
-                <h2>Titre :{{ book.title }}</h2>
+                <h2>Titre : {{ book.title }}</h2>
                 <p>{{ book.description }}</p>
-                <p>Autheur :{{ book.author }}</p>
+                <p>Auteur : {{ book.author }}</p>
                 <a href="{{ path('book_show', {'id': book.id}) }}">Voir</a>
             {% endfor %}
 </div>
