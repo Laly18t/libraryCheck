@@ -3,20 +3,21 @@
 {% block title %}Hello BooksController!{% endblock %}
 
 {% block body %}
-<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-</style>
 
-<div class="example-wrapper">
+<div class="container">
     <h1>Hello {{ controller_name }}! ✅</h1>
 
     <p class="text-2xl text-red-300">Liste de vos livres</p>
+
+    <div class="flex ">
             {% for book in books %}
-                <h2>Titre : {{ book.title }}</h2>
-                <p>{{ book.description }}</p>
-                <p>Auteur : {{ book.author }}</p>
-                <a href="{{ path('book_show', {'id': book.id}) }}">Voir</a>
+                <div class="border  p-4">
+                    <h2>Titre : {{ book.title }}</h2>
+                    <p>{{ book.description }}</p>
+                    <p>Auteur : {{ book.author }}</p>
+                    <a href="{{ path('book_show', {'id': book.id}) }}">Voir</a>
+                </div>
             {% endfor %}
+    </div>
 </div>
 {% endblock %}
