@@ -3,6 +3,7 @@
 namespace App\Command;
 
 use App\Entity\User;
+use App\Entity\Book;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\Console\Attribute\AsCommand;
 use Symfony\Component\Console\Command\Command;
@@ -40,13 +41,15 @@ class InitCommand extends Command
         $io = new SymfonyStyle($input, $output);
         $arg1 = $input->getArgument('arg1');
 
-        // if ($arg1) {
-        //     $io->note(sprintf('You passed an argument: %s', $arg1));
-        // }
 
-        // if ($input->getOption('option1')) {
-        //     // ...
-        // }
+        // -------------- CREATE A BOOK -------------------
+        $book = new Book();
+        $book->setISBN("978026452217");
+        $book->setTitle("Harry Potter");  
+        $book->setAuthor("J.K Rowling");
+
+        $this->em->persist($book);
+        $this->em->flush();
 
         // -------------- CREATE A USER -------------------
         // $user = new User();
