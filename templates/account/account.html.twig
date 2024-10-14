@@ -5,12 +5,11 @@
 {% block body %}
 
 <div class="container">
-    <h1>Hello {{ controller_name }}! ✅</h1>
-
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code>/Users/lalyteissier/Documents/Ecole/Gobelins/DEV/2-Symfony/libraryCheck/src/Controller/AccountController.php</code></li>
-        <li>Your template at <code>/Users/lalyteissier/Documents/Ecole/Gobelins/DEV/2-Symfony/libraryCheck/templates/account/index.html.twig</code></li>
-    </ul>
+    <h2>Bienvenue dans votre bibliothèque de poche !</h2>
+    
+    <div class="flex mt-4">
+        <a class="bg-indigo-950 text-white p-4 rounded-lg" href="{{ path('app_books') }}">Voir mes livres</a>
+        <a class="bg-indigo-950 text-white p-4 ml-4 rounded-lg" href="{{ path('app_books') }}">Ajouter un livre</a>
+    </div>
 </div>
 {% endblock %}

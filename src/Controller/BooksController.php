@@ -21,8 +21,8 @@ class BooksController extends AbstractController
         
         $books = $bookRepository->findAll();
 
-        // $books = $bookRepository->findByUser( $user); // même méthode que celle d'après mais en passant par le repository
-        $books = $user->getBooks(); // on récupère les livres de l'utilisateur connecté
+        $books = $bookRepository->findByUser( $user); // même méthode que celle d'après mais en passant par le repository
+        // $books = $user->getBooks(); // on récupère les livres de l'utilisateur connecté
         
         
 

@@ -10,9 +10,14 @@
 {% if app.user %}
 
 <div class="container">
-    <h2>{{ book.title }}</h2>
-    <p>{{ book.description }}</p>
-    <p>{{ book.author }}</p>
+    <a class="bg-indigo-950 text-white p-4 rounded-lg" href="{{ path('app_books') }}"> Retour à mes livres</a>
+
+    <div class="mt-8">
+        <h2 class="text-2xl text-red-300 font-bold">{{ book.title }}</h2>
+        <p> {{ book.description }}</p>
+        <p>-> {{ book.author }}</p>
+        <p>-> {{ book.category_id_id }}</p>
+    </div>
 </div>
 
 {% endif %}

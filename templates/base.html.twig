@@ -11,7 +11,20 @@
             {% block importmap %}{{ importmap('app') }}{% endblock %}
         {% endblock %}
     </head>
-    <body>
+    <body class="relative">
+        <h1 class="text-4xl text-center p-6 w-full">📚 Book Library 📚</h1>
+        {# -------------------- CARD LOGIN / USER CONNECTED ------------------- #}
+        <div class="absolute right-0 top-0 rounded-bl-lg p-4 bg-white">
+            {% if app.user == null %}
+                <a class="text-red-600" href="{{ path('app_login') }}">Se connecter</a>
+            {% else %}
+                <p><a href="{{ path('app_account') }}">{{ app.user.userIdentifier }}</a></p>
+                <a class="text-red-600" href="{{ path('app_logout') }}">Se déconnecter</a>
+            {% endif %} 
+            
+        </div>
+
+        {# -------------------- CONTENT ------------------- #}
         {% block body %}{% endblock %}
     </body>
 </html>
