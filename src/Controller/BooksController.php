@@ -33,7 +33,7 @@ class BooksController extends AbstractController
     }
 
     #[Route('/books/user/{id}', name: 'app_books_user')]
-    public function showForUser( BookRepository $bookRepository, UserRepository $userRepository, Request $request): Response
+    public function showForUser(UserRepository $userRepository, Request $request): Response
     {   
         $userId = $request->get('id');
         $otherUser = $userRepository->findOneBy(['id' => $userId]);
