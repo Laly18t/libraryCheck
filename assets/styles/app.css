@@ -41,7 +41,9 @@ body {
     a,
     input,
     tr,
-    td {
+    td,
+    label,
+    button {
         font-family: 'quicksand';
     }
 }
