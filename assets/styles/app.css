@@ -39,7 +39,9 @@ body {
 
     p,
     a,
-    input {
+    input,
+    tr,
+    td {
         font-family: 'quicksand';
     }
 }

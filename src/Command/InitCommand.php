@@ -43,27 +43,27 @@ class InitCommand extends Command
 
 
         // -------------- CREATE A BOOK -------------------
-        $book = new Book();
-        $book->setISBN("978026452217");
-        $book->setTitle("Harry Potter");  
-        $book->setAuthor("J.K Rowling");
+        // $book = new Book();
+        // $book->setISBN("978026452217");
+        // $book->setTitle("Harry Potter");  
+        // $book->setAuthor("J.K Rowling");
 
-        $this->em->persist($book);
-        $this->em->flush();
+        // $this->em->persist($book);
+        // $this->em->flush();
 
         // -------------- CREATE A USER -------------------
-        // $user = new User();
+        $user = new User();
 
-        // // hash the plain password
-        // $plainPassword = '1234';
-        // $hashedPasword = $this->passwordHasher->hashPassword($user, $plainPassword);
+        // hash the plain password
+        $plainPassword = '1234';
+        $hashedPasword = $this->passwordHasher->hashPassword($user, $plainPassword);
 
+        $user->setEmail('laly.teissier2@gmail.com');
+        $user->setPassword($hashedPasword);
+        $user->setRoles(['ROLE_ADMIN']);
 
-        // $user->setEmail('laly.teissier1@gmail.com');
-        // $user->setPassword($hashedPasword);
-
-        // $this->em->persist($user);
-        // $this->em->flush();
+        $this->em->persist($user);
+        $this->em->flush();
         
 
         $io->success('You have a new user!');
