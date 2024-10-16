@@ -11,14 +11,34 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
+use Symfony\Component\Security\Http\Attribute\IsGranted;
 
 #[Route('/book')]
 final class BookController extends AbstractController
 {
     #[Route(name: 'app_book_index', methods: ['GET'])]
-    public function index(BookRepository $bookRepository): Response
+    public function index(BookRepository $bookRepository, UserRepository $userRepository, Request $request): Response
+    {
+        $user = $this->getUser();
+        
+        $books = $bookRepository->findAll();
+
+        $books = $bookRepository->findByUser( $user); // même méthode que celle d'après mais en passant par le repository
+        // $books = $user->getBooks(); // on récupère les livres de l'utilisateur connecté
+        
+        
+        return $this->render('book/index.html.twig', [
+            'title' => 'Liste de vos livres :', 
+            'books' => $books,
+        ]);
+    }
+
+    #[IsGranted('ROLE_ADMIN')]
+    #[Route('/all', name: 'app_books',  methods: ['GET'])]
+    public function showAll(BookRepository $bookRepository, UserRepository $userRepository, Request $request): Response
     {
         return $this->render('book/index.html.twig', [
+            'title' => 'Liste des livres disponibles :', 
             'books' => $bookRepository->findAll(),
         ]);
     }
