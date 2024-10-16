@@ -19,6 +19,7 @@
                 <a class="text-red-600" href="{{ path('app_login') }}">Se connecter</a>
             {% else %}
                 <p><a href="{{ path('app_account') }}">{{ app.user.userIdentifier }}</a></p>
+                <p>{{ app.user.roles[0] }}</p> {# show first role (stronger) #}
                 <a class="text-red-600" href="{{ path('app_logout') }}">Se déconnecter</a>
             {% endif %} 
             
