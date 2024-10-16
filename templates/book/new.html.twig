@@ -3,9 +3,22 @@
 {% block title %}New Book{% endblock %}
 
 {% block body %}
-    <h1>Create new Book</h1>
+
+    <h2> Cherche un livre </h2>
+
+    <form data-controller="searchBook" data-action="searchBook#handleSubmit"> 
+        <input data-action="searchBook#write" type="search" id="search" name="search" placeholder="Rechercher un livre...">
+    </form>
+
+    <div class="my-8"> ------ </div>
+
+
+    <h2>Ou créer le</h2>
 
     {{ include('book/_form.html.twig') }}
 
     <a href="{{ path('app_book_index') }}">back to list</a>
+
+
+
 {% endblock %}

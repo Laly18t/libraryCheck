@@ -8,6 +8,7 @@ use App\Repository\BookRepository;
 use App\Repository\UserRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
@@ -67,6 +68,21 @@ final class BookController extends AbstractController
         ]);
     }
 
+    #[Route('/search', name: 'app_book_search', methods: ['GET'])]
+    public function search(Request $request, BookRepository $bookRepository, EntityManagerInterface $entityManager): Response
+    {
+        $bookName = $request->query->get('bookName');
+        $book = $bookRepository->findOneBy(['title'=> $bookName]);
+ 
+        return new JsonResponse([
+            'message' => 'Hello laly',
+            'book'=> [
+                'id' => $book->getId(),
+                'title' => $book->getTitle(),
+            ],
+        ]);
+    }
+
     #[Route('/{id}', name: 'app_book_show', methods: ['GET'])]
     public function show(Book $book): Response
     {
@@ -103,4 +119,6 @@ final class BookController extends AbstractController
 
         return $this->redirectToRoute('app_book_index', [], Response::HTTP_SEE_OTHER);
     }
+
+  
 }
