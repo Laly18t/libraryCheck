@@ -27,7 +27,8 @@ body {
         background-color: #ffffff;
         padding: 30px;
         border-radius: 30px;
-        margin: 50px
+        margin: 50px;
+        max-width: 80%;
     }
 
     h1,
@@ -35,6 +36,24 @@ body {
         text-align: center;
         font-size: 32px;
         font-family: 'kulderin';
+        color: rgb(96, 64, 117);
+    }
+
+    .btn {
+        background-color: rgb(96, 64, 117);
+        color: #ffffff;
+        padding: 1rem;
+        border-radius: 0.5rem;
+    }
+
+    .link {
+        font-weight: bold;
+        text-align: center;
+        color: rgb(96, 64, 117);
+
+        &:hover {
+            text-decoration: underline;
+        }
     }
 
     p,
@@ -45,5 +64,11 @@ body {
     label,
     button {
         font-family: 'quicksand';
+    }
+
+    input {
+        border: 1px solid rgb(96, 64, 117);
+        border-radius: 0.7em;
+        margin: 3px;
     }
 }

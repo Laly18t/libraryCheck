@@ -10,7 +10,7 @@
         <p class="text-xl my-4">Vous n'êtes pas connecté -> <a class="text-red-600" href="{{ path('app_login') }}">Se connecter</a></p>
     {% endif %}
 
-    <p class="text-2xl text-red-300 mt-8">{{ title }}</p>
+    <p class="text-2xl  mt-8">{{ title }}</p>
 
     <div class="flex w-full h-full">
     {% if books == null %}
@@ -23,13 +23,13 @@
                     <p>Auteur : {{ book.author }}</p>
 
                     <div class="flex justify-between mt-2">
-                        <a class="text-red-300 font-bold text-center hover:underline mr-2" href="{{ path('app_book_show', {'id': book.id}) }}">+ d'info</a>
-                        <a class="text-red-300 font-bold text-center hover:underline" href="{{ path('app_book_edit', {'id': book.id}) }}">Modifier</a>
+                        <a class="link mr-2" href="{{ path('app_book_show', {'id': book.id}) }}">+ d'info</a>
+                        <a class="link" href="{{ path('app_book_edit', {'id': book.id}) }}">Modifier</a>
                     </div>
                 </div>
             {% endfor %}
     </div>
-    <p class="h-5"><a class="bg-indigo-950  text-white p-4 ml-4 mt-4 rounded-lg" href="{{ path('app_book_new') }}">Ajouter un livre</a></p>
+    <p class="h-full w-full mt-7 flex justify-center"><a class="btn" href="{{ path('app_book_new') }}">Ajouter un livre</a></p>
 </div>
 
 {% endblock %}

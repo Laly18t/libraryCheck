@@ -3,6 +3,7 @@
 {% block title %}New Book{% endblock %}
 
 {% block body %}
+<div  class="container">
 
     <h2> Cherche un livre </h2>
 
@@ -17,8 +18,8 @@
 
     {{ include('book/_form.html.twig') }}
 
-    <a href="{{ path('app_book_index') }}">back to list</a>
+    <a class="link" href="{{ path('app_book_index') }}">Retour à la liste</a>
 
-
+</div>
 
 {% endblock %}

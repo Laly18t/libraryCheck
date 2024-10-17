@@ -3,14 +3,16 @@
 {% block title %}BookCollection index{% endblock %}
 
 {% block body %}
-    <h1>BookCollection index</h1>
+<div  class="container">
 
-    <table class="table">
+    <h1>Liste des collections :</h1>
+
+    <table class="table mb-5">
         <thead>
             <tr>
-                <th>Id</th>
-                <th>Name</th>
-                <th>actions</th>
+                <th>Id : </th>
+                <th>Nom : </th>
+                <th>actions : </th>
             </tr>
         </thead>
         <tbody>
@@ -19,17 +21,19 @@
                 <td>{{ book_collection.id }}</td>
                 <td>{{ book_collection.name }}</td>
                 <td>
-                    <a href="{{ path('app_book_collection_show', {'id': book_collection.id}) }}">show</a>
-                    <a href="{{ path('app_book_collection_edit', {'id': book_collection.id}) }}">edit</a>
+                    <a class="link" href="{{ path('app_book_collection_show', {'id': book_collection.id}) }}">Voir</a>
+                    <a class="link" href="{{ path('app_book_collection_edit', {'id': book_collection.id}) }}">Modifier</a>
                 </td>
             </tr>
         {% else %}
             <tr>
-                <td colspan="3">no records found</td>
+                <td colspan="3">Pas de collection</td>
             </tr>
         {% endfor %}
         </tbody>
     </table>
 
-    <a href="{{ path('app_book_collection_new') }}">Create new</a>
+    <a class="btn" href="{{ path('app_book_collection_new') }}">Créer</a>
+
+</div>
 {% endblock %}
