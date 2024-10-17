@@ -5,7 +5,7 @@ Découvrir le framework Symfony et faire un projet regroupant les grands concept
 Fait par Laly Teissier, étudiante aux Gobelins Annecy
 
 ## Projet :
-"Book Library", votre bibliothèque de poche !
+Bienvenue sur "Book Library", votre bibliothèque de poche !
 Grâce à cette webapp, vous saurez en un coup d'oeil si vous avez déjà ce fameux livre qui vous fait de l'oeil à la librairie ou bien si vous pouvez l'achter et enfin l'ajouter à votre collection (physique et numérique).
 
 
