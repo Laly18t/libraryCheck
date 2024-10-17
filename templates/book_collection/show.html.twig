@@ -18,9 +18,9 @@
         </tbody>
     </table>
 
+<div class="flex justify-between items-center">
     <a class="link" href="{{ path('app_book_collection_index') }}">Retour à la liste</a>
-
     <a class="link" href="{{ path('app_book_collection_edit', {'id': book_collection.id}) }}">Modifier</a>
+</div>
 
-    {{ include('book_collection/_delete_form.html.twig') }}
 {% endblock %}
