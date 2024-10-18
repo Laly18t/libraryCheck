@@ -28,3 +28,12 @@ Grâce à cette webapp, vous saurez en un coup d'oeil si vous avez déjà ce fam
     -- côté front : `php bin/console tailwind:build --watch`
 
 Le projet est maintenant disponible depuis le lien : http://127.0.0.1:8000/login
+
+
+Pour créer un utilisateur ou un livre, vous pouvez écrire les commandes :
+
+    -- 'php bin/console app:init createUser'
+
+    -- 'php bin/console app:init createBook'
+
+Il faut juste changer l'email du user si vous voulez la relancer une deuxième fois, dans le fichier "InitCommand.php".

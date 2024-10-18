@@ -31,7 +31,8 @@ class InitCommand extends Command
     protected function configure(): void
     {
         $this
-            ->addArgument('arg1', InputArgument::OPTIONAL, 'Argument description')
+            ->addArgument('createUser', InputArgument::OPTIONAL, "Création d'utilisateur")
+            ->addArgument('createBook', InputArgument::OPTIONAL, 'Création de livre')
             ->addOption('option1', null, InputOption::VALUE_NONE, 'Option description')
         ;
     }
@@ -39,34 +40,41 @@ class InitCommand extends Command
     protected function execute(InputInterface $input, OutputInterface $output): int
     {
         $io = new SymfonyStyle($input, $output);
-        $arg1 = $input->getArgument('arg1');
+        // $arg = $input->getArgument('arg');
+        $createUser = $input->getArgument('createUser');
+        $createBook = $input->getArgument('createBook');
 
 
         // -------------- CREATE A BOOK -------------------
-        // $book = new Book();
-        // $book->setISBN("978026452217");
-        // $book->setTitle("Harry Potter");  
-        // $book->setAuthor("J.K Rowling");
+        if($createBook === $input->getArgument('createBook')){
+            $book = new Book();
+            $book->setISBN("978026452218");
+            $book->setTitle("Harry Potter 2");  
+            $book->setAuthor("J.K Rowling");
 
-        // $this->em->persist($book);
-        // $this->em->flush();
+            $this->em->persist($book);
+            $this->em->flush();
+
+            $io->success('You have a new book!');
+       }
 
         // -------------- CREATE A USER -------------------
-        $user = new User();
+        if($createUser === $input->getArgument('createUser')){
+            $user = new User();
 
-        // hash the plain password
-        $plainPassword = '1234';
-        $hashedPasword = $this->passwordHasher->hashPassword($user, $plainPassword);
+            // hash the plain password
+            $plainPassword = '1234';
+            $hashedPasword = $this->passwordHasher->hashPassword($user, $plainPassword);
 
-        $user->setEmail('laly.teissier2@gmail.com');
-        $user->setPassword($hashedPasword);
-        $user->setRoles(['ROLE_ADMIN']);
+            $user->setEmail('email@gmail.com');
+            $user->setPassword($hashedPasword);
+            $user->setRoles(['ROLE_ADMIN']);
 
-        $this->em->persist($user);
-        $this->em->flush();
-        
+            $this->em->persist($user);
+            $this->em->flush();
 
-        $io->success('You have a new user!');
+            $io->success('You have a new user!');
+        };
 
         return Command::SUCCESS;
     }
