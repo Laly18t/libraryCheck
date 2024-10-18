@@ -31,8 +31,7 @@ class InitCommand extends Command
     protected function configure(): void
     {
         $this
-            ->addArgument('createUser', InputArgument::OPTIONAL, "Création d'utilisateur")
-            ->addArgument('createBook', InputArgument::OPTIONAL, 'Création de livre')
+            ->addArgument('action', InputArgument::OPTIONAL, "Création d'utilisateur")
             ->addOption('option1', null, InputOption::VALUE_NONE, 'Option description')
         ;
     }
@@ -40,17 +39,22 @@ class InitCommand extends Command
     protected function execute(InputInterface $input, OutputInterface $output): int
     {
         $io = new SymfonyStyle($input, $output);
-        // $arg = $input->getArgument('arg');
-        $createUser = $input->getArgument('createUser');
-        $createBook = $input->getArgument('createBook');
+        $actionArg = $input->getArgument('action');
+
+        // dd($actionArg, $actionArg === 'createBook');
 
 
         // -------------- CREATE A BOOK -------------------
-        if($createBook === $input->getArgument('createBook')){
+        if($actionArg === 'createBook'){
+
+            $title = $io->ask('Entrez le titre de votre livre', '1984');
+            $author = $io->ask("Entrez l'auteur de votre livre", 'George Orwell');
+
+
             $book = new Book();
-            $book->setISBN("978026452218");
-            $book->setTitle("Harry Potter 2");  
-            $book->setAuthor("J.K Rowling");
+            $book->setISBN("978026452278");
+            $book->setTitle($title);  
+            $book->setAuthor($author);
 
             $this->em->persist($book);
             $this->em->flush();
@@ -58,15 +62,19 @@ class InitCommand extends Command
             $io->success('You have a new book!');
        }
 
+
         // -------------- CREATE A USER -------------------
-        if($createUser === $input->getArgument('createUser')){
+        if($actionArg === 'createUser'){
+
+            $email = $io->ask('Entrez  un email', 'email@gmail.com');
+            $plainPassword = $io->ask('Entrez  un mot de passe', '1234');
+
             $user = new User();
 
             // hash the plain password
-            $plainPassword = '1234';
             $hashedPasword = $this->passwordHasher->hashPassword($user, $plainPassword);
 
-            $user->setEmail('email@gmail.com');
+            $user->setEmail($email);
             $user->setPassword($hashedPasword);
             $user->setRoles(['ROLE_ADMIN']);
 
