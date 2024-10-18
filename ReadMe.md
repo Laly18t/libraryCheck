@@ -30,10 +30,12 @@ Grâce à cette webapp, vous saurez en un coup d'oeil si vous avez déjà ce fam
 Le projet est maintenant disponible depuis le lien : http://127.0.0.1:8000/login
 
 
-Pour créer un utilisateur ou un livre, vous pouvez écrire les commandes :
+**Pour stocker des données en mode dev, vous devez avoir une base de donnée en PostgreSQL sur votre pc.**
+
+Pour créer un utilisateur ou un livre depuis votre terminal, vous pouvez écrire les commandes :
 
     -- 'php bin/console app:init createUser'
 
     -- 'php bin/console app:init createBook'
 
-Il faut juste changer l'email du user si vous voulez la relancer une deuxième fois, dans le fichier "InitCommand.php".
+Il faut juste changer l'email du user si vous voulez la relancer une deuxième fois, dans le fichier "InitCommand.php", l'email etant unique sur la plateforme.
