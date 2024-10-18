@@ -39,3 +39,19 @@ Pour créer un utilisateur ou un livre depuis votre terminal, vous pouvez écrir
     -- 'php bin/console app:init createBook'
 
 Il faut juste changer l'email du user si vous voulez la relancer une deuxième fois, dans le fichier "InitCommand.php", l'email etant unique sur la plateforme.
+
+
+## Technique :
+
+J'ai utilisé :
+
+- Tailwind avec AssetMaper pour le côté Front/CSS 
+- Symfony UX avec stimulus pour le côtés JS et les composants (barre de recherche)
+
+
+Dans mon workflow de travail (macOS), j'ai utilisé :
+
+- DBngin pour les base de données
+- DBgate pour voir la base de données à la manière de phpMyAdmin
+
+Dans les ressources utilisés, j'ai surtout utilisé la documentation de Symfony et ma patience, promis sans chatGPT !
