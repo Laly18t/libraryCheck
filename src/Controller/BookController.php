@@ -75,10 +75,10 @@ final class BookController extends AbstractController
         $book = $bookRepository->findOneBy(['title'=> $bookName]);
  
         return new JsonResponse([
-            'message' => 'Hello laly',
             'book'=> [
                 'id' => $book->getId(),
                 'title' => $book->getTitle(),
+                'author' => $book->getAuthor(),
             ],
         ]);
     }

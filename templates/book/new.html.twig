@@ -9,6 +9,11 @@
 
     <form data-controller="searchBook" data-action="searchBook#handleSubmit"> 
         <input data-action="searchBook#write" type="search" id="search" name="search" placeholder="Rechercher un livre...">
+        <ul>
+            {# {% for book in books %} #}
+                {# <li>{{ book.title + ',' + book.author}}</li> #}
+            {# {% endfor %} #}
+        </ul>
     </form>
 
     <div class="my-8"> ------ </div>
