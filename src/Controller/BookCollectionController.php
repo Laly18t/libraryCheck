@@ -13,7 +13,6 @@ use Symfony\Component\Routing\Attribute\Route;
 use Symfony\Component\Security\Http\Attribute\IsGranted;
 
 #[Route('/book/collection')]
-#[IsGranted('ROLE_ADMIN')]
 final class BookCollectionController extends AbstractController
 {
     #[Route(name: 'app_book_collection_index', methods: ['GET'])]
