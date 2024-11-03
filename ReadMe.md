@@ -29,6 +29,12 @@ Grâce à cette webapp, vous saurez en un coup d'oeil si vous avez déjà ce fam
 
 Le projet est maintenant disponible depuis le lien : http://127.0.0.1:8000/login
 
+5 - Installer la base de donnée :
+
+    -- créer : `php bin/console doctrine:database:create`
+
+    -- migrer : `php bin/console doctrine:migrations:migrate`
+
 
 **Pour stocker des données en mode dev, vous devez avoir une base de donnée en PostgreSQL sur votre pc.**
 
