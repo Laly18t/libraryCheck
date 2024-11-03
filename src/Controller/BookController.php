@@ -8,6 +8,7 @@ use App\Repository\BookRepository;
 use App\Repository\UserRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Bundle\SecurityBundle\Security;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -49,13 +50,20 @@ final class BookController extends AbstractController
     {
         $book = new Book();
 
-        $userId = $request->get('id');
+        
+
+    
+        // Récupérer l'user
+        $user = $this->getUser();
+    
         
         $form = $this->createForm(BookType::class, $book);
-        // $form->setUsers(userId);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+            // Associer le livre à l'utilisateur
+            $book->addUser($user); 
+
             $entityManager->persist($book);
             $entityManager->flush();
 
