@@ -6,7 +6,9 @@ ENV COMPOSER_ALLOW_SUPERUSER=1
 
 RUN set -eux; \
     install-php-extensions \
-    @composer
+    @composer \
+    pdo_pgsql \
+    bcmath
 #    apcu \
 #    intl \
 #    opcache \
