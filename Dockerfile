@@ -20,10 +20,10 @@ RUN set -eux; \
 
 COPY --link composer.* symfony.* ./
 
+RUN set -eux; composer install --no-cache --prefer-dist --no-dev --no-autoloader --no-scripts --no-progress
 #COPY --link . ./
 COPY --link . /app
 
-RUN set -eux; composer install --no-cache --prefer-dist --no-dev --no-autoloader --no-scripts --no-progress
 
 #RUN set -eux; \
 	#mkdir -p var/cache var/log; \
